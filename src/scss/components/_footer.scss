@@ -1,0 +1,122 @@
+@use "../util" as *;
+
+footer {
+  position: relative;
+  background-color: initial;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    @extend %absolute-overlay;
+    background-color: var(--bg);
+    z-index: -2;
+  }
+
+  &::before {
+    @extend %absolute-overlay;
+    background-color: var(--text);
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .absolute {
+    position: absolute;
+    text-align: center;
+    background-color: var(--bg);
+    top: -7rem;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+      rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+    .overlay {
+      padding: 1.5rem;
+      position: relative;
+
+      &::before {
+        @extend %absolute-overlay;
+        background-color: var(--text);
+        opacity: 0.1;
+      }
+
+      h2,
+      button {
+        position: relative;
+        z-index: 1000;
+      }
+    }
+
+    .primary-btn {
+      margin: 0;
+      margin-top: 1rem;
+      color: var(--clr-neutral);
+
+      &:hover {
+        color: var(--bg);
+      }
+    }
+  }
+}
+
+.footer.container {
+  @include flex(column, 1.5rem 0);
+}
+
+.footer-brands {
+  display: flex;
+  justify-content: center;
+  gap: 0 2rem;
+
+  a {
+    font-size: 28px;
+  }
+  > :nth-child(1) a {
+    @include fa-icon-brands($fa-var-facebook);
+  }
+  > :nth-child(2) a {
+    @include fa-icon-brands($fa-var-twitter);
+  }
+  > :nth-child(3) a {
+    @include fa-icon-brands($fa-var-instagram);
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem 1.5rem;
+}
+
+.footer.col-wrapper {
+  flex-direction: column;
+}
+
+.footer-col1 {
+  display: grid;
+  gap: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .footer.col-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0 1.5rem;
+  }
+
+  .footer-col1 {
+    flex: 0 1 24rem;
+  }
+
+  .footer-links {
+    flex: 0 1 18rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: start;
+    justify-content: space-around;
+  }
+
+  .footer-brands {
+    flex: 0 1 18rem;
+    justify-content: flex-end;
+  }
+}
