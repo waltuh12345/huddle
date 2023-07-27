@@ -2,22 +2,22 @@
 
 //=====COLORS======//
 :root {
-  --text: #121212;
-  --bg: #ffffff;
-
-  --err: #cf6679;
-  --clr-primary: #34afe8;
-  --clr-neutral: #d58c09;
-}
-
-//=========MIXINS==========//
-.dark-mode {
   --bg: #121212;
   --text: #ffffff;
-
+  --transparent: #8a8a8a;
   --err: #cf6679;
   --clr-primary: #89d7f3;
   --clr-neutral: #e8c37e;
+}
+
+//=========MIXINS==========//
+.light-mode {
+  --text: #121212;
+  --bg: #ffffff;
+  --transparent: #c2c2c2;
+  --err: #cf6679;
+  --clr-primary: #34afe8;
+  --clr-neutral: #d58c09;
 }
 
 .dark-bg {
